@@ -9,12 +9,17 @@
 </div>
 
 ## Descripción
-
+Una aplicación web tipo e-commerce de donación, el cual permite crear proyectos
+que requieran donaciones, pueden estar agrupados por categorías diferentes. 
 > [!NOTE]
 > Crear una breve descripción de su proyecto.
 
 ### Funcionalidades
-
+1. Página de inicio: aqui se pueden ver las categorias acompañadas de campañas de donación respectivas con una pequeña preview.
+2. Página de inicio de sesión
+3. Página de registro
+4. Página de Campaña: aquí se puede ver la descripción de la campaña, donar y agregar la campaña a favoritos.
+5. Favoritos
 > [!NOTE]
 > Crear una lista numerada con las funcionalidades propuestas para su proyecto.
 
