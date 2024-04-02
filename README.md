@@ -9,24 +9,21 @@
 </div>
 
 ## Descripción
-Una aplicación web tipo e-commerce de donación, el cual permite crear proyectos
-que requieran donaciones, pueden estar agrupados por categorías diferentes. 
+Una aplicación web tipo e-commerce de donación.
+ 
 > [!NOTE]
 > Crear una breve descripción de su proyecto.
 
 ### Funcionalidades
-1. Página de inicio: aqui se pueden ver las categorias acompañadas de campañas de donación respectivas con una pequeña preview.
-2. Página de inicio de sesión
-3. Página de registro
-4. Página de Campaña: aquí se puede ver la descripción de la campaña, donar y agregar la campaña a favoritos.
-5. Favoritos
-> [!NOTE]
-> Crear una lista numerada con las funcionalidades propuestas para su proyecto.
+
+1. **Página de inicio**: Los usuarios pueden ver las categorias acompañadas de la lista de campañas de donación respectivas mediante una pequeña preview.
+2. **Inicio de sesión**: Los usuarios pueden iniciar sesión en la aplicación.
+3. **Registro de usuario**: Los usuarios pueden registrarse en la aplicación.
+4. **Visualización de Campañas**: Los usuarios pueden visualizar detalles de una campaña y donar.
+5. **Favoritos**: Los usuarios pueden marcar campañas como favoritas.
+
 
 ## Prototipo
-
-> [!NOTE]
-> Debe reemplazar los URL de los archivos Figma. Ver al final de este archivo, ahí estan los links.
 
 <div align="center">
 
@@ -35,6 +32,7 @@ que requieran donaciones, pueden estar agrupados por categorías diferentes.
 </div>
 
 ## Maquetación web
+
 
 > [!NOTE]
 > Debe incluir los archivos de maquetación en la carpeta respectiva, e incluir una breve descripción de dichos archivos.

@@ -1,0 +1,21 @@
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F1FFFA;
+    width: 100%;
+    height: 100vh;
+}
+
+.top-navbar {
+    width: 100%;
+    height: 90px;
+    position: absolute;
+    text-align: center;
+    background-color: #2C1320;
+    color: #F1FFFA;
+}
+.top-navbar > h1{
+    padding-top: 20px;
+}
+
