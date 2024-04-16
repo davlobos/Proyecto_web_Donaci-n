@@ -137,3 +137,8 @@ body {
     margin-top: 10px; /* Ajusta el espacio entre el último campo de entrada y el botón */
   }
   /* fin barra login */
+
+  .items.account {
+    position: fixed; /* Evita el scroll */
+    overflow: hidden; 
+  }
