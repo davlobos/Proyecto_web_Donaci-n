@@ -1,7 +1,6 @@
 const navTabs = document.querySelectorAll('.btabbar-item');
 const navContent = document.querySelectorAll('.items');
 
-
 document.addEventListener("DOMContentLoaded", function() {
     // Get the element with class "start"
     var startElement = document.querySelector(".start");
@@ -27,7 +26,7 @@ navTabs.forEach(navTab => {
 
         if(navTab.id == "start"){
             titulo = "Inicio";
-        }else if (navTab.id == "saved"){
+        }else if (navTab.id == "favorite"){
             titulo = "Favoritos";
         }else if( navTab.id == "account"){
             titulo = "Cuenta";
