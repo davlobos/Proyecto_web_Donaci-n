@@ -40,10 +40,17 @@ body {
 
 
 .scroll > .items {
+    position: absolute;
+    visibility: hidden;
     display: grid;
     gap: 20px;
     padding: 10px 15px;
 }
+
+.current{
+    visibility: visible;
+}
+
 
 .items > .item {
     width: 300px;
