@@ -109,3 +109,31 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/* barra login */
+.login-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 50vh;
+  }
+  
+  .login-bar input {
+    margin-bottom: 10px; /* Ajusta el espacio entre los campos de entrada */
+  }
+  
+  .login-bar button {
+    background-color: #2C1320;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px; /* Ajusta el espacio entre el último campo de entrada y el botón */
+  }
+  /* fin barra login */
