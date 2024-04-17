@@ -1,5 +1,6 @@
 const navTabs = document.querySelectorAll('.btabbar-item');
 const navContent = document.querySelectorAll('.items');
+const scroll = document.querySelector('.scroll');
 // register button
 const tab = document.querySelector('.registerb');
 // info button
@@ -16,7 +17,7 @@ tab2s.forEach(tab2 => {
     tab2.addEventListener('click', () => {
         var items = document.getElementsByClassName("items");
         for (var i = 0; i < items.length; i++) {
-                items[i].style.visibility = "hidden";            
+                items[i].style.visibility = "hidden";
         }
         for (var i = 0; i < items.length; i++) {
             if (navContent[i].classList.contains("campaign")){
@@ -61,12 +62,16 @@ navTabs.forEach(navTab => {
         }
         if(navTab.id == "start"){
             titulo = "Inicio";
+            scroll.style.overflowY = "scroll";
         }else if (navTab.id == "favorite"){
             titulo = "Favoritos";
+            scroll.style.overflowY = "scroll";
         }else if( navTab.id == "account"){
             titulo = "Iniciar sesión";
+            scroll.style.overflowY = "hidden";
         }else if(navTab.id == "register"){
             titulo = "Registrarse";
+            scroll.style.overflowY = "hidden";
         }
         document.getElementById("id01").innerHTML = titulo;
     });
