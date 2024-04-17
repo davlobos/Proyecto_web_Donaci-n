@@ -1,13 +1,49 @@
 const navTabs = document.querySelectorAll('.btabbar-item');
 const navContent = document.querySelectorAll('.items');
+// register button
+const tab = document.querySelector('.registerb');
+// info button
+const tab2s = document.querySelectorAll('.infob');
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Get the element with class "start"
     var startElement = document.querySelector(".start");
-    // Make the element visible
     startElement.style.visibility = "visible";
 });
 
+
+// detecta si se presiono "ver mas informacion"
+tab2s.forEach(tab2 => {
+    tab2.addEventListener('click', () => {
+        var items = document.getElementsByClassName("items");
+        for (var i = 0; i < items.length; i++) {
+                items[i].style.visibility = "hidden";            
+        }
+        for (var i = 0; i < items.length; i++) {
+            if (navContent[i].classList.contains("campaign")){
+                items[i].style.visibility = "visible";
+            }
+        }
+    titulo = "Campaña";
+    document.getElementById("id01").innerHTML = titulo;
+});
+});
+
+// detecta si se presiono el boton para crearse una nueva cuenta
+tab.addEventListener('click', () => {
+    var items = document.getElementsByClassName("items");
+    for (var i = 0; i < items.length; i++) {
+            items[i].style.visibility = "hidden";            
+    }
+    for (var i = 0; i < items.length; i++) {
+        if (navContent[i].classList.contains("register")){
+            items[i].style.visibility = "visible";
+        }
+    }
+    titulo = "Registro";
+    document.getElementById("id01").innerHTML = titulo;
+});
+
+// detecta si se presionaron los botones de la barra inferior y hace los cambios graficos y de contenido correspondientes
 navTabs.forEach(navTab => {
     navTab.addEventListener('click', () => {
         console.log(navTab.id);
@@ -23,7 +59,6 @@ navTabs.forEach(navTab => {
                 items[i].style.visibility = "visible";
             }
         }
-
         if(navTab.id == "start"){
             titulo = "Inicio";
         }else if (navTab.id == "favorite"){

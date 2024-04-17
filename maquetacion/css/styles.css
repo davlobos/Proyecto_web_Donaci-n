@@ -62,7 +62,7 @@ body {
     text-align: right;
 }
 
-.item > a {
+.item > h3 {
     text-decoration:none;
     position: absolute;
     bottom: 0;
