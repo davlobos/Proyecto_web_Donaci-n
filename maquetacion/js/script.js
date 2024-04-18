@@ -88,3 +88,11 @@ function login() {
     console.log("Nombre de usuario: " + username);
     console.log("Contraseña: " + password);
   }
+
+  function register() {
+    // Aquí se puede agregar la lógica de verificación 
+  }
+
+  function donate() {
+    // Aquí se puede agregar la lógica de verificación 
+  }

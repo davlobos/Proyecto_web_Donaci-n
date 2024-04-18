@@ -157,6 +157,12 @@ body {
     border-radius: 25px;
     position: relative;
 }
+.items.campaign progress {
+    appearance: none;
+}
+.items.campaign progress::-webkit-progress-bar {
+    background-color: rgb(220, 216, 216); /* Color de fondo de toda la barra */
+}
 
 .items.campaign {
     display: flex;
@@ -165,9 +171,26 @@ body {
     justify-content: center; /* Centrar verticalmente */
     text-align: center; /* Centrar el texto */
 }
-.campaign {
+.items.campaign svg,
+.items.campaign h7 {
+    margin-left: 250px;
+    margin-top: -20px;
+}
 
-    text-align: center;
+.items.campaign .dollar {
+    display: flex;
+    align-items: center;
+    margin-left: -10px;
+}
+
+.items.campaign .dollar span {
+    color: #48b293; 
+    font-weight: bold; 
+    font-size: 1.2em; 
+}
+
+.items.campaign .dollar span:first-child {
+    margin-right: 5px; /* Espacio entre el signo de dólar y el número */
 }
 
 .input-field {
@@ -175,4 +198,34 @@ body {
     width: 65%;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+
+.items.campaign .donate-button {
+    background-color: #8EFA95;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px; 
+}
+.items.campaign .donation-container {
+    display: flex;
+    align-items: center;
+}
+
+.donation {
+    padding-top: 5px; /* Espacio superior */
+    padding-bottom: 5px; /* Espacio inferior */
+}
+
+.items.campaign .svg-donar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -250px;
 }
