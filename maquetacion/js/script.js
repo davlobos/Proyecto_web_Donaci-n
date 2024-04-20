@@ -96,3 +96,46 @@ function login() {
   function donate() {
     // Aquí se puede agregar la lógica de verificación 
   }
+  //-------------------------------------
+
+  //document.getElementById('inicioSesion').addEventListener('submit', function(event) {
+    //event.preventDefault(); 
+
+    //if (validarFormulario()) {
+    //    this.submit(); 
+    //}
+
+
+
+//});
+
+document.getElementById('inicioSesion').addEventListener('submit', function(event) {
+    const username = document.getElementById('nombre').value;
+    const password = document.getElementById('contra').value;
+    const usernameError = document.getElementById('username-error');
+    const passwordError = document.getElementById('password-error');
+    let valid = true;
+  
+    // Verificar requisitos del nombre de usuario
+    if (username.length < 4) {
+      usernameError.textContent = 'El nombre de usuario debe tener al menos 4 caracteres.';
+      valid = false;
+    } else {
+      usernameError.textContent = '';
+    }
+  
+    // Verificar requisitos de la contraseña
+    if (password.length < 6) {
+      passwordError.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+      valid = false;
+    } else {
+      passwordError.textContent = '';
+    }
+  
+    // Evitar que se envíe el formulario si no es válido
+    if (!valid) {
+      event.preventDefault();
+    }
+  });
+
+

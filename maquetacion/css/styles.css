@@ -229,3 +229,12 @@ body {
     align-items: center;
     margin-left: -250px;
 }
+
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: -20px;
+    min-height: 2px;
+    max-height: 2px;
+  }
