@@ -53,7 +53,7 @@ document.getElementById('registro').addEventListener('submit', function(event) {
     const nombre= document.getElementById('username').value;
     const e_nombre= document.getElementById('user-error');
     const rut = document.getElementById('Rut').value;
-    const password = document.getElementById('contraseña').value;
+    const password = document.getElementById('contrasena').value;
     const repassword = document.getElementById('recontraseña').value;
     const rutError = document.getElementById('Rut-error');
     const passwordError = document.getElementById('password-error');
@@ -88,6 +88,36 @@ document.getElementById('registro').addEventListener('submit', function(event) {
                 return S?S-1:'k';
             }
         }
+
+        // Uso de la función
+    alert( Fn.validaRut('11111111-1') ? 'Valido' : 'inválido');
+
+
+
+         // Verificar requisitos de la contraseña
+    if (password.length < 6) {
+        passwordError.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+        valid = false;
+      } else {
+        passwordError.textContent = '';
+      }
+  
+          // Verificar requisitos de la contraseña
+      if (repassword.length < 6) {
+        repasswordError.textContent = 'La confirmarción de contraseña debe tener al menos 6 caracteres.';
+        valid = false;
+      } else {
+        repasswordError.textContent = '';
+      }
+  
+      if(repassword != password){
+          passwordError.textContent = 'La contraseña debe ser igual a la confirmación de constraseña.';
+          repasswordError.textContent = 'La confirmación de contraseña debe ser igual a la constraseña.';
+          valid = false;
+      } else {
+          passwordError.textContent = '';
+          repasswordError.textContent = '';
+      }
     
 });
 
