@@ -44,7 +44,11 @@ tab.addEventListener('click', () => {
     document.getElementById("id01").innerHTML = titulo;
 });
 
-
+function validarcontra(password) {
+    // Expresión regular para verificar al menos una mayúscula y al menos un número
+    const regex = /^(?=.*[A-Z])(?=.*\d).+$/;
+    return regex.test(password);
+}
 
 // Agregar el evento al formulario de registro
 document.getElementById('registro').addEventListener('submit', function(event) {
@@ -56,7 +60,6 @@ document.getElementById('registro').addEventListener('submit', function(event) {
     const password = document.getElementById('contrasena').value;
     const repassword = document.getElementById('recontraseña').value;
     const rutError = document.getElementById('Rut-error');
-    const passwordError = document.getElementById('password-error');
     const repasswordError = document.getElementById('repassword-error');
     let valid = true;
 
@@ -66,58 +69,17 @@ document.getElementById('registro').addEventListener('submit', function(event) {
       } else {
         e_nombre.textContent = '';
       }
+        //verificar requisitos contraseñas
 
-      //Verificar requisitos de rut
-    var Fn = {
-        // Valida el rut con su cadena completa "XXXXXXXX-X"
-        validaRut : function (Rut) {
-           if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rut)){
-                rutError.textContent = 'El rut solo puede tener números y puede finalizar en -k.';
-                valid = false;
-            }    
-            var tmp 	= rut.split('-');
-            var digv	= tmp[1]; 
-            var rut 	= tmp[0];
-            if ( digv == 'K' ) digv = 'k' ;
-                return (Fn.dv(rut) == digv );
-            },
-            dv : function(T){
-                var M=0,S=1;
-                for(;T;T=Math.floor(T/10))
-                    S=(S+T%10*(9-M++%6))%11;
-                return S?S-1:'k';
-            }
-        }
-
-        // Uso de la función
-    alert( Fn.validaRut('11111111-1') ? 'Valido' : 'inválido');
-
-
-
-         // Verificar requisitos de la contraseña
-    if (password.length < 6) {
-        passwordError.textContent = 'La contraseña debe tener al menos 6 caracteres.';
-        valid = false;
-      } else {
-        passwordError.textContent = '';
-      }
-  
-          // Verificar requisitos de la contraseña
-      if (repassword.length < 6) {
-        repasswordError.textContent = 'La confirmarción de contraseña debe tener al menos 6 caracteres.';
-        valid = false;
-      } else {
-        repasswordError.textContent = '';
-      }
-  
-      if(repassword != password){
-          passwordError.textContent = 'La contraseña debe ser igual a la confirmación de constraseña.';
-          repasswordError.textContent = 'La confirmación de contraseña debe ser igual a la constraseña.';
-          valid = false;
-      } else {
-          passwordError.textContent = '';
-          repasswordError.textContent = '';
-      }
+    if(repassword != password){
+        repasswordError.textContent = 'La confirmación de contraseña debe ser igual a la constraseña.';
+    }else if(password.length < 6){
+        repasswordError.textContent= 'La contraseña debe ser mas larga que 6 caracteres.';
+    }else if(!validarcontra(password)){
+        repasswordError.textContent= 'La contraseña debe tener almenos una mayuscula y un digito.';
+    }else{
+        repasswordError.textContent= '';
+    }
     
 });
 
