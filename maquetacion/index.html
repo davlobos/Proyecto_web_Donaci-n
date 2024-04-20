@@ -74,31 +74,43 @@
                         ¿No tienes una cuenta?<b class="registerb"> Registrate aquí.</b>
                     </div>
             </div>
+            <!------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------>
             <div class="items register">  <!--Pantalla registro (register button) -->
                 <div class="login-bar">
+                    <form class="login-bar" id="registro">
+                        <input type="text" id="username" placeholder="Nombre de usuario" required>
+                        <br><div id="user-error" class="error-message"></div>
+                        <br><input type="text" id="Rut" placeholder="RUT" required>
+                        <br><div id="Rut-Error" class="error message"></div>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <select id="region" class="input-field" required>
+                            <option value="" disabled selected >Seleccione región</option>
+                            <option value="region1">Región 1</option>
+                            <option value="region2">Región 2</option>
+                            <!-- Agrega más opciones de región  -->
+                        </select>
                     
-                    <input type="text" id="username" placeholder="Nombre de usuario">
-                    <input type="text" id="rut" placeholder="RUT">
-                    <input type="email" id="email" placeholder="Email">
-                    <select id="region" class="input-field">
-                        <option value="" disabled selected>Seleccione región</option>
-                        <option value="region1">Región 1</option>
-                        <option value="region2">Región 2</option>
-                        <!-- Agrega más opciones de región  -->
-                    </select>
-                    
-                    <select id="comuna" class="input-field">
-                        <option value="" disabled selected>Seleccione comuna</option>
-                        <option value="comuna1">Comuna 1</option>
-                        <option value="comuna2">Comuna 2</option>
-                        <!-- Agrega más opciones de comuna -->
-                    </select>
-                    <input type="password" id="password" placeholder="Contraseña">
-                    <input type="password" id="confirmPassword" placeholder="Confirmar contraseña">
-                    <label><input type="checkbox" id="termsCheckbox"> Acepto los términos y condiciones</label>
-                    <button onclick="register()" id="registerButton" >Registrarse</button>
+                        <select id="comuna" class="input-field" required>
+                            <option value="" disabled selected>Seleccione comuna</option>
+                            <option value="comuna1">Comuna 1</option>
+                            <option value="comuna2">Comuna 2</option>
+                            <!-- Agrega más opciones de comuna -->
+                        </select>
+                        <input type="password" id="contraseña" placeholder="Contraseña">
+                        <br><div id="password-error" class="error-message"></div>
+                        <br><input type="password" id="recontraseña" placeholder="Confirmar contraseña">
+                        <br><div id="repassword-error" class="error message"></div>
+                        <label><input type="checkbox" id="termsCheckbox"> Acepto los términos y condiciones</label>
+                        <button>Registrarse</button>
+                        </form>
                     </div>
             </div>
+
+            <!------------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------------>
+
+            
             <div class="items campaign"> <!--Pantalla información de campaña-->
                 <h1>CAMPAÑA 1</h1>
                 <svg width="25px" height="25px" stroke-width="1.5" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor">

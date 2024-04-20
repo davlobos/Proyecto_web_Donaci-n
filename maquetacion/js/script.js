@@ -44,6 +44,53 @@ tab.addEventListener('click', () => {
     document.getElementById("id01").innerHTML = titulo;
 });
 
+
+
+// Agregar el evento al formulario de registro
+document.getElementById('registro').addEventListener('submit', function(event) {
+    // Evitar la acción predeterminada del formulario (enviar datos y recargar la página)
+    event.preventDefault();
+    const nombre= document.getElementById('username').value;
+    const e_nombre= document.getElementById('user-error');
+    const rut = document.getElementById('Rut').value;
+    const password = document.getElementById('contraseña').value;
+    const repassword = document.getElementById('recontraseña').value;
+    const rutError = document.getElementById('Rut-error');
+    const passwordError = document.getElementById('password-error');
+    const repasswordError = document.getElementById('repassword-error');
+    let valid = true;
+
+    if (nombre.length < 4) {
+        e_nombre.textContent = 'El nombre de usuario debe tener al menos 4 caracteres.';
+        valid = false;
+      } else {
+        e_nombre.textContent = '';
+      }
+
+      //Verificar requisitos de rut
+    var Fn = {
+        // Valida el rut con su cadena completa "XXXXXXXX-X"
+        validaRut : function (Rut) {
+           if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rut)){
+                rutError.textContent = 'El rut solo puede tener números y puede finalizar en -k.';
+                valid = false;
+            }    
+            var tmp 	= rut.split('-');
+            var digv	= tmp[1]; 
+            var rut 	= tmp[0];
+            if ( digv == 'K' ) digv = 'k' ;
+                return (Fn.dv(rut) == digv );
+            },
+            dv : function(T){
+                var M=0,S=1;
+                for(;T;T=Math.floor(T/10))
+                    S=(S+T%10*(9-M++%6))%11;
+                return S?S-1:'k';
+            }
+        }
+    
+});
+
 // detecta si se presionaron los botones de la barra inferior y hace los cambios graficos y de contenido correspondientes
 navTabs.forEach(navTab => {
     navTab.addEventListener('click', () => {
@@ -80,7 +127,6 @@ navTabs.forEach(navTab => {
 function login() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-  
     // Aquí se puede agregar la lógica de verificación del nombre de usuario y contraseña
     // Por ejemplo, se puede comparar con valores predefinidos o enviar una solicitud a un servidor para verificar las credenciales
     
@@ -138,4 +184,7 @@ document.getElementById('inicioSesion').addEventListener('submit', function(even
     }
   });
 
+
+
+  
 
