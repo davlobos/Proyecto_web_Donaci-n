@@ -150,6 +150,10 @@ body {
     overflow: hidden; 
 }
 
+.items.register{
+    position: fixed;
+    overflow: hidden;
+}
 
 .items.campaign img {
     width: 300px;
