@@ -44,6 +44,7 @@ tab.addEventListener('click', () => {
     document.getElementById("id01").innerHTML = titulo;
 });
 
+
 function validarcontra(password) {
     // Expresión regular para verificar al menos una mayúscula y al menos un número
     const regex = /^(?=.*[A-Z])(?=.*\d).+$/;
@@ -69,6 +70,23 @@ document.getElementById('registro').addEventListener('submit', function(event) {
       } else {
         e_nombre.textContent = '';
       }
+    
+    console.log("entrando a rut ");
+    if (!/^(\d{1,2}(?:[\.]?\d{3}){2}-[\dkK])$/.test(rut)) {
+        console.log("estas dentro del rut")
+        if (rutError) {
+            console.log("Esta mal el rut")
+            rutError.textContent = 'El RUT ingresado no es válido, debe ingresar en formato XXXXXX-X';
+        }
+        valid = false;
+    } else {
+        console.log("estas saliendo bien")
+        if (rutError) {
+            rutError.textContent = '';
+        }
+    }
+    
+    console.log("saliste de rut ");     
         //verificar requisitos contraseñas
 
     if(repassword != password){
