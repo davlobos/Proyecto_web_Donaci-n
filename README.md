@@ -1,4 +1,4 @@
-# Proyecto
+# Proyecto - DonApp
 
 <div align="center">
 
@@ -11,6 +11,11 @@
 ## Descripción
 Una aplicación web tipo e-commerce de donación que ofrece una plataforma donde los usuarios pueden registrarse, iniciar sesión y explorar diferentes campañas de donación.
 
+## Integrantes
+- Carlos Da Silva
+- Camila Barrera
+- Nicolás Zárate
+- Alejandro Marín
 
 ### Funcionalidades
 
