@@ -40,9 +40,9 @@ Una aplicación web tipo e-commerce de donación que ofrece una plataforma donde
 
  - Carpeta img : Se guardan las imágenes usadas para el html de la página principal.
 
- - Carpeta js - Archivo script.js: Contiene scripts que permite cambiar de pestañas y realiza validaciones.
+ - Carpeta js - Archivo script.js : Contiene scripts que permite cambiar de pestañas y realiza validaciones.
 
- - index.html - Maquetación de todos los contenidos de la página.
+ - index.html : Maquetación de todos los contenidos de la página.
 
 [js-badge-sm]: https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&style=flat
 [js-web]: https://developer.mozilla.org/es/docs/Web/JavaScript
