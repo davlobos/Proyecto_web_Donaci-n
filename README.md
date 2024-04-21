@@ -9,7 +9,7 @@
 </div>
 
 ## Descripción
-Una aplicación web tipo e-commerce de donación.
+Una aplicación web tipo e-commerce de donación que ofrece una plataforma donde los usuarios pueden registrarse, iniciar sesión y explorar diferentes campañas de donación.
  
 > [!NOTE]
 > Crear una breve descripción de su proyecto.
@@ -33,6 +33,9 @@ Una aplicación web tipo e-commerce de donación.
 
 ## Maquetación web
 
+Carpeta css - Archivo styles : Donde se encuentran todos los estilos del html.
+
+Carpeta img : se guardan las imágenes usadas para el html de la página principal.
 
 > [!NOTE]
 > Debe incluir los archivos de maquetación en la carpeta respectiva, e incluir una breve descripción de dichos archivos.
