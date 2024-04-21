@@ -10,9 +10,7 @@
 
 ## Descripción
 Una aplicación web tipo e-commerce de donación que ofrece una plataforma donde los usuarios pueden registrarse, iniciar sesión y explorar diferentes campañas de donación.
- 
-> [!NOTE]
-> Crear una breve descripción de su proyecto.
+
 
 ### Funcionalidades
 
@@ -33,12 +31,13 @@ Una aplicación web tipo e-commerce de donación que ofrece una plataforma donde
 
 ## Maquetación web
 
-Carpeta css - Archivo styles : Donde se encuentran todos los estilos del html.
+ - Carpeta css - Archivo styles : Donde se encuentran todos los estilos del html.
 
-Carpeta img : se guardan las imágenes usadas para el html de la página principal.
+ - Carpeta img : Se guardan las imágenes usadas para el html de la página principal.
 
-> [!NOTE]
-> Debe incluir los archivos de maquetación en la carpeta respectiva, e incluir una breve descripción de dichos archivos.
+ - Carpeta js - Archivo script.js: Contiene scripts que permite cambiar de pestañas y realiza validaciones.
+
+ - index.html - Maquetación de todos los contenidos de la página.
 
 [js-badge-sm]: https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&style=flat
 [js-web]: https://developer.mozilla.org/es/docs/Web/JavaScript
