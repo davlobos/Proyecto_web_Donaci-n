@@ -119,6 +119,11 @@ body {
     justify-content: center; 
     height: 65vh;
 }
+
+.login-bar svg {
+    margin-bottom: 15px; /* Ajusta el valor según sea necesario */
+}
+
   
 .login-bar input {
     margin-bottom: 10px; /* Ajusta el espacio entre los campos de entrada */

@@ -134,36 +134,6 @@ navTabs.forEach(navTab => {
     });
 });
 
-function login() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    // Aquí se puede agregar la lógica de verificación del nombre de usuario y contraseña
-    // Por ejemplo, se puede comparar con valores predefinidos o enviar una solicitud a un servidor para verificar las credenciales
-    
-    // Imprime credenciales para demostración
-    console.log("Nombre de usuario: " + username);
-    console.log("Contraseña: " + password);
-  }
-
-  function register() {
-    // Aquí se puede agregar la lógica de verificación 
-  }
-
-  function donate() {
-    // Aquí se puede agregar la lógica de verificación 
-  }
-  //-------------------------------------
-
-  //document.getElementById('inicioSesion').addEventListener('submit', function(event) {
-    //event.preventDefault(); 
-
-    //if (validarFormulario()) {
-    //    this.submit(); 
-    //}
-
-
-
-//});
 
 document.getElementById('inicioSesion').addEventListener('submit', function(event) {
     const username = document.getElementById('nombre').value;
