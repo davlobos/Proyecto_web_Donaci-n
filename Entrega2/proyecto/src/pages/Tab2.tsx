@@ -20,7 +20,7 @@ const Tab2: React.FC = () => {
         {data.map(campaigncard => 
           campaigncard.fav && (
             <CampaignCard 
-              key={campaigncard.id}
+              id={campaigncard.id}
               title={campaigncard.title}
               subtitle={campaigncard.subtitle}
             />

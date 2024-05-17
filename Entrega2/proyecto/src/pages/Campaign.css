@@ -1,0 +1,14 @@
+/* Campaign.css */
+.campaign-image {
+    max-width: 50%;
+    height: auto;
+    display: flex;
+    border-radius: 10px;
+    margin: 20px auto 0;
+}
+.campaign-container {
+    text-align: center;
+}
+.campaign-title {
+    margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
+}

@@ -5,25 +5,24 @@ import './CampaignCard.css';
 import Campaign from '../pages/Campaign';
 
 interface ContainerProps {
-    title: string;
-    subtitle: string;
+  id: number;
+  title: string;
+  subtitle: string;
 }
 
-const CampaignCard: React.FC<ContainerProps> = ({ title, subtitle }) => {
-    return (
-        <IonCard className = "card">
+const CampaignCard: React.FC<ContainerProps> = ({ id, title, subtitle }) => {
+  return (
+      <IonCard className="card">
           <IonCardHeader>
-            <IonCardTitle>{title}</IonCardTitle>
+              <IonCardTitle>{title}</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>{subtitle}</IonCardContent>
-          <IonButton className ="custom-button" fill="clear" >
-          
-            <IonRouterLink routerLink='/Campaign'>
-              Ver más información
+          <IonButton className="custom-button" fill="clear">
+              <IonRouterLink routerLink={`/campaign/${id}`}>
+                  Ver más información
               </IonRouterLink>
-            </IonButton>
-          
-        </IonCard>
-      );
-  };
+          </IonButton>
+      </IonCard>
+  );
+};
 export default CampaignCard;

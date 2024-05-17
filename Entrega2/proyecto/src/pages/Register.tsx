@@ -17,7 +17,10 @@ const Register: React.FC = () => {
         </IonHeader>
         <div className="input-container">
         <IonInput label="Nombre de usuario" labelPlacement="floating" fill="outline" placeholder="Nombre de usuario"></IonInput>
+        <IonInput label="RUT" labelPlacement="floating" fill="outline" placeholder="RUT"></IonInput>
+        <IonInput label="Email" labelPlacement="floating" fill="outline" placeholder="Email"></IonInput>
         <IonInput label="Contraseña" labelPlacement="floating" fill="outline" placeholder="Contraseña"></IonInput>
+        <IonInput label="Confirmar contraseña" labelPlacement="floating" fill="outline" placeholder="Confirmar contraseña"></IonInput>
         <IonButton> Crear</IonButton>
         </div>
       </IonContent>

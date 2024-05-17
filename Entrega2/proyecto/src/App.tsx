@@ -64,7 +64,7 @@ const App: React.FC = () => (
           <Route exact path="/">
             <Redirect to="/tab1" />
           </Route>
-          <Route exact path="/campaign">
+          <Route exact path="/campaign/:id" component={Campaign}>
             <Campaign />
           </Route>
           <Route exact path="/register">
