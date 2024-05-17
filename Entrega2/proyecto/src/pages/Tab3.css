@@ -20,11 +20,14 @@ p{
     margin-bottom: -15px;
     text-align: center;
 }
+.registerbtn{
+    color: black;
+}
 
 .registro{
     --background: transparent; /* No background color */
     --border: none; /* No border */
-    color: inherit; /* Inherits the text color from its parent */
+    color: black; /* Inherits the text color from its parent */
     font-size: 16px;
     font-weight: bold;
 }

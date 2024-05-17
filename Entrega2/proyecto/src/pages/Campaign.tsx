@@ -16,6 +16,7 @@ const Campaign: React.FC = () => {
                 <IonTitle size="large">Campaign</IonTitle>
                 </IonToolbar>
             </IonHeader>
+            
             AAAAAAAAAAAAAAAAA
             </IonContent>
         </IonPage>

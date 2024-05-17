@@ -18,7 +18,7 @@ const Tab1: React.FC = () => {
             <IonTitle size="large">Tab 1</IonTitle>
           </IonToolbar>
         </IonHeader>
-        ({data.map(campaigncard=><CampaignCard 
+        {data.map(campaigncard=><CampaignCard 
             title={campaigncard.title}
             subtitle={campaigncard.subtitle}
         />)}

@@ -1,6 +1,8 @@
 import React from 'react';
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle } from '@ionic/react';
+import { Route } from 'react-router';
+import { IonRouterLink ,IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle } from '@ionic/react';
 import './CampaignCard.css';
+import Campaign from '../pages/Campaign';
 
 interface ContainerProps {
     title: string;
@@ -14,7 +16,13 @@ const CampaignCard: React.FC<ContainerProps> = ({ title, subtitle }) => {
             <IonCardTitle>{title}</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>{subtitle}</IonCardContent>
-          <IonButton className="custom-button" fill="clear">Ver más información</IonButton>
+          <IonButton className ="custom-button" fill="clear" >
+          
+            <IonRouterLink routerLink='/Campaign'>
+              Ver más información
+              </IonRouterLink>
+            </IonButton>
+          
         </IonCard>
       );
   };

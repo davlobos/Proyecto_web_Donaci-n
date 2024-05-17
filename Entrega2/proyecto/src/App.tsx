@@ -10,12 +10,12 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, heartOutline, homeOutline, personCircleOutline, square, triangle } from 'ionicons/icons';
+import { heartOutline, homeOutline, personCircleOutline } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 import Campaign from './pages/Campaign';
-
+import Register from './pages/Register';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -64,8 +64,11 @@ const App: React.FC = () => (
           <Route exact path="/">
             <Redirect to="/tab1" />
           </Route>
-          <Route exact path="/Campaign">
+          <Route exact path="/campaign">
             <Campaign />
+          </Route>
+          <Route exact path="/register">
+            <Register />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">

@@ -19,6 +19,6 @@ ion-card-title {
 ion-card-subtitle {
     --color: #d1fff8;
 }
-ion-button{
+ion-router-link{
     --color: #8EFA95;
 }
