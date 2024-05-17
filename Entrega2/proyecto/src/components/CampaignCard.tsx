@@ -14,7 +14,7 @@ const CampaignCard: React.FC<ContainerProps> = ({ title, subtitle }) => {
             <IonCardTitle>{title}</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>{subtitle}</IonCardContent>
-          <IonButton fill="clear">Ver más información</IonButton>
+          <IonButton className="custom-button" fill="clear">Ver más información</IonButton>
         </IonCard>
       );
   };

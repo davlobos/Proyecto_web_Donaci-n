@@ -1,6 +1,8 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import CampaignCard from '../components/CampaignCard';
 import './Tab1.css';
+import data from './campaigns.json';
+
 
 const Tab1: React.FC = () => {
   return (
@@ -16,7 +18,10 @@ const Tab1: React.FC = () => {
             <IonTitle size="large">Tab 1</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <CampaignCard title = "Gatitos tristes" subtitle = "Hay muchos gatitos tristes que necesitan dinero :c"/>
+        ({data.map(campaigncard=><CampaignCard 
+            title={campaigncard.title}
+            subtitle={campaigncard.subtitle}
+        />)}
       </IonContent>
     </IonPage>
   );
