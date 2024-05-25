@@ -12,3 +12,6 @@
 .campaign-title {
     margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
 }
+ion-title{
+    margin-right: 53px;
+}

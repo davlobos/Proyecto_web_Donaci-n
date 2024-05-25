@@ -1,4 +1,4 @@
-import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput } from '@ionic/react';
+import { IonBackButton, IonButtons, IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput } from '@ionic/react';
 import './Register.css';
 
 const Register: React.FC = () => {
@@ -6,6 +6,9 @@ const Register: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot='start'>
+          <IonBackButton defaultHref='/Tab3' />
+          </IonButtons>
           <IonTitle>Registro</IonTitle>
         </IonToolbar>
       </IonHeader>

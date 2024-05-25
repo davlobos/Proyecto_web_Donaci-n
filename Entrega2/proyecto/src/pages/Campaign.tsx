@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useParams } from 'react-router';
 import './Campaign.css';
 import data from './campaigns.json';
@@ -15,6 +15,9 @@ const Campaign: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
+                    <IonButtons slot='start'>
+                    <IonBackButton defaultHref='/Campaign' />
+                    </IonButtons>
                     <IonTitle>Campaña</IonTitle>
                 </IonToolbar>
             </IonHeader>
