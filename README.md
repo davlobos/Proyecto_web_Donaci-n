@@ -95,3 +95,12 @@ Una aplicación web tipo e-commerce de donación que ofrece una plataforma donde
 [figma-prot-url]: https://www.figma.com/proto/sEBP7Rtx7VJOaT2DRnrhjQ/Proyecto?type=design&node-id=1-6&t=As38ksRTfVx9M0wk-1&starting-point-node-id=1%3A6
 [figma-dis-badge]: https://img.shields.io/badge/Ver%20diseño%20UI%20en%20Figma-F24E1E?logo=figma&logoColor=fff&style=flat
 [figma-dis-url]: https://www.figma.com/file/sEBP7Rtx7VJOaT2DRnrhjQ/Proyecto?type=design&node-id=0%3A1&mode=design&t=As38ksRTfVx9M0wk-1
+
+
+## 2.3 Estructura de datos inicial de la app, estructura base de datos y modelo de datos.
+En nuestra aplicación de donación, encontramos que está más orientado a una red social más que algo muy estructurado. Por lo cual se necesita un crecimiento rápido para mantener el interés de los usuarios. Además debe ser capaz de soportar muchos usuarios al mismo tiempo que están relacionándose en los comentarios de los proyectos que se pueden donar, debido a esto no se debe caer la base de datos y conexión con esta. La tabla de registro de usuario tiene las siguientes variables: Nombre de Usuario, Rut, Email, Contraseña y Confirmación de contraseña. Mientras que para Iniciar Sesión sería: Nombre de Usuario, Contraseña
+Considerando lo anterior haríamos uso de MongoDB debido a que es una base de datos no relacional open-source orientada a documentos con las siguientes características: Multi plataforma, lo cual permitirá funcionar en múltiples sistemas operativos. Alto rendimiento, Disponibilidad y escalabilidad: Lo cual permitirá un rendimiento rápido y eficaz, además de en caso de aumento en cantidad de datos, no afectará al rendimiento.
+
+
+## 2.4 Patrones de diseño:
+Podemos apreciar en todas nuestras paginas principales: Inicio/Favoritos/ Mi cuenta. Presentan una tab bar ubicada en la parte inferior de la pantalla, permitiendo la facilidad de acceso a los puntos de mayor interés que puedan tener nuestros usuarios. Acompañado de que nuestras campañas, otra feature importante de la app, cuentan con un botón de back en la parte superior izquierda de la pantalla, el cual permite volver a la pestaña que se encontraba en uso anteriormente, si se entra a una misma campaña desde inicio o favoritos, este botón devolverá a la pestaña desde la cual uno ingreso permitiendo así un movimiento más fluido.
