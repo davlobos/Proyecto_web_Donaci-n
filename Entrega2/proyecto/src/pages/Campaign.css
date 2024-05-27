@@ -15,3 +15,18 @@
 ion-title{
     margin-right: 53px;
 }
+
+.donation-container {
+    margin-top: 16px;
+}
+
+.donation-container p {
+    margin: 8px 0;
+}
+
+ion-button {
+    width: 35%;
+    --background: #2C1320;
+    --color: white;
+    margin-top: 16px;
+}
