@@ -134,5 +134,5 @@ Ejemplo:
 | Perritos | Gatitos ... |  Cell 3   | 150000 | 3000   |
 
 ## 2.4 Patrones de diseño:
- - Patrón de navegación tab bar: se ubica en la parte inferior de la pantalla y permite facilidad de acceso a los puntos de mayor importancia para nuestros usuarios.
+ - Patrón de navegación tab bar: Se ubica en la parte inferior de la pantalla y permite facilidad de acceso a los puntos de mayor importancia para nuestros usuarios.
  - Patrón de navegación historica: Nuestras campañas y página de registro cuentan con un botón en la parte superior izquierda de la pantalla para regresar a la página anterior permitiendo así un movimiento más fluido.
