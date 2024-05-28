@@ -98,7 +98,15 @@ Una aplicación web tipo e-commerce de donación que ofrece una plataforma donde
 
 
 ## 2.3 Estructura de datos a futuro de la app, estructura base de datos y modelo de datos.
+Haríamos uso de MongoDB debido a que es una base de datos no relacional open-source orientada a documentos con las siguientes características: Multi plataforma, Alto rendimiento, Disponibilidad y escalabilidad: Lo cual permitirá un rendimiento rápido y eficaz, además de en caso de aumento en cantidad de datos, no afectará al rendimiento.
 Actualmente, nuestra base de datos es no relacional y estamos utilizando JSON. Por lo tanto, nuestro modelo no tiene multiplicidad, ya que solo se trata de tablas sueltas. Sin embargo, en el futuro estamos considerando cambiar a un modelo relacional si lo vemos necesario. En este momento, solo estamos usando un JSON para las campañas de la siguiente manera:
+
+A futuro queremos implementar un modelo mas completo por lo que queremos añadir más tablas y mejorar las actuales como se explicará a continuación.
+
+La tabla de usuario tiene las siguientes variables: Nombre de Usuario, Rut, Email y Contraseña. 
+Mientras que para Campaña sería: Titulo, Descripción, URLimagen, Meta y Progreso.
+
+
 Ejemplo:
 [
     {
@@ -109,13 +117,6 @@ Ejemplo:
     },..
 ]   
 
-A futuro queremos implementar un modelo mas completo por lo que queremos añadir más tablas y mejorar las actuales como se explicará a continuación.
-
-La tabla de usuario tiene las siguientes variables: Nombre de Usuario, Rut, Email y Contraseña. 
-Mientras que para Campaña sería: Titulo, Descripción, URLimagen, Meta y Progreso.
-Considerando lo anterior haríamos uso de MongoDB debido a que es una base de datos no relacional open-source orientada a documentos con las siguientes características: Multi plataforma, Alto rendimiento, Disponibilidad y escalabilidad: Lo cual permitirá un rendimiento rápido y eficaz, además de en caso de aumento en cantidad de datos, no afectará al rendimiento.
-
-Dicho código se mostrará en el documento
 
 ### Tabla Usuario
 
