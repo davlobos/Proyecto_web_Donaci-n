@@ -134,4 +134,4 @@ Ejemplo:
 | Perritos | Gatitos ... |  Cell 3   | 150000 | 3000   |
 
 ## 2.4 Patrones de diseño:
-Podemos apreciar en todas nuestras paginas principales: Inicio/Favoritos/ Mi cuenta. Presentan una tab bar ubicada en la parte inferior de la pantalla, permitiendo la facilidad de acceso a los puntos de mayor interés que puedan tener nuestros usuarios. Acompañado de que nuestras campañas, otra feature importante de la app, cuentan con un botón de back en la parte superior izquierda de la pantalla, el cual permite volver a la pestaña que se encontraba en uso anteriormente, si se entra a una misma campaña desde inicio o favoritos, este botón devolverá a la pestaña desde la cual uno ingreso permitiendo así un movimiento más fluido.
+Podemos apreciar en todas nuestras paginas un patrón de navegación tab bar ubicada en la parte inferior de la pantalla, permitiendo la facilidad de acceso a los puntos de mayor interés que puedan tener nuestros usuarios. Acompañado de que nuestras campañas y página de registro, cuentan con un botón en la parte superior izquierda de la pantalla para regresar a la página anterior permitiendo así un movimiento más fluido.
