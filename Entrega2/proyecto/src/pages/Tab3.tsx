@@ -16,15 +16,19 @@ const Tab3: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <div className="input-container">
-        <IonInput label="Nombre de usuario" labelPlacement="floating" fill="outline" placeholder="Nombre de usuario"></IonInput>
-        <IonInput label="Contraseña" labelPlacement="floating" fill="outline" placeholder="Contraseña"></IonInput>
-        <IonButton> Ingresar</IonButton>
-        <p>¿No tienes una cuenta?</p>
-        <IonButton fill="clear" className="registro">
-              <IonRouterLink className="registerbtn"routerLink='/Register'>
-              <b>Registrate Aquí.</b> 
+          <IonInput label="Nombre de usuario" labelPlacement="floating" fill="outline" placeholder="Nombre de usuario"></IonInput>
+          <IonInput label="Contraseña" labelPlacement="floating" fill="outline" placeholder="Contraseña"></IonInput>
+          <div className="button-container">
+            <IonButton>Ingresar</IonButton>
+          </div>
+          <p>¿No tienes una cuenta?</p>
+          <div className="button-container">
+            <IonButton fill="clear" className="registro">
+              <IonRouterLink className="registerbtn" routerLink='/Register'>
+                <b>Registrate Aquí.</b> 
               </IonRouterLink>
-           </IonButton>
+            </IonButton>
+          </div>
         </div>
       </IonContent>
     </IonPage>
