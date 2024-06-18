@@ -4,18 +4,24 @@
         "title": "Gatitos tristes",
         "subtitle":"Hay muchos gatitos tristes que necesitan dinero :c",
         "fav": false,
-        "imgURL": "https://i.pinimg.com/564x/3d/7d/4a/3d7d4a4b46482feda80cb8cb49906b5f.jpg"
+        "imgURL": "https://i.pinimg.com/564x/3d/7d/4a/3d7d4a4b46482feda80cb8cb49906b5f.jpg",
+        "goal" : 2500,
+        "progress": 1000
     },{
         "id": 1,
         "title": "Fundación perritos",
         "subtitle":"Hay muchos perritos viviendo en la fundación, dona para seguir cuidando muchos perritos :c",
         "fav": true,
-        "imgURL": "https://i.pinimg.com/474x/40/82/3e/40823e316922640922ed6ae3f5e90c16.jpg"
-    },{
+        "imgURL": "https://i.pinimg.com/474x/40/82/3e/40823e316922640922ed6ae3f5e90c16.jpg",
+        "goal" : 7000,
+        "progress": 1550
+        },{
         "id": 2,
         "title": "Universitarios hambrientos",
         "subtitle":"La comida en el edificio IBC esta muy cara, haga un aporte para poder alimentar a estos pobres estudiantes",
         "fav": false,
-        "imgURL": "https://i.imgflip.com/x5hb8.jpg?a476400"
+        "imgURL": "https://i.imgflip.com/x5hb8.jpg?a476400",
+        "goal" : 10000,
+        "progress": 10
     }
-]   
+]

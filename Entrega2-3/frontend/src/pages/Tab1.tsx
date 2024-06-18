@@ -19,6 +19,7 @@ const Tab1: React.FC = () => {
                 </IonHeader>
                 {data.map(campaign => (
                     <CampaignCard 
+                        key={campaign.id} 
                         id={campaign.id}
                         title={campaign.title}
                         subtitle={campaign.subtitle}

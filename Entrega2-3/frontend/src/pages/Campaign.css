@@ -2,7 +2,7 @@
 .campaign-image {
     max-width: 50%;
     height: auto;
-    display: flex;
+    display: block;
     border-radius: 10px;
     margin: 20px auto 0;
 }
@@ -10,14 +10,17 @@
     text-align: center;
 }
 .campaign-title {
-    margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
+    margin-bottom: 10px;
 }
-ion-title{
+ion-title {
     margin-right: 53px;
 }
 
 .donation-container {
     margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .donation-container p {
@@ -29,4 +32,9 @@ ion-button {
     --background: #2C1320;
     --color: white;
     margin-top: 16px;
+}
+
+ion-progress-bar {
+    width: 75%;
+    margin: 0 auto; 
 }

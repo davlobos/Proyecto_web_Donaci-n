@@ -1,3 +1,13 @@
-ion-title{
-    margin-right: 53px;
+ion-title {
+  margin-right: 53px;
+}
+ion-toggle {
+  margin-top: 25px;
+}
+ion-select {
+  margin-top: 10px;
+}
+
+ion-select.never-flip::part(icon) {
+  transform: none;
 }

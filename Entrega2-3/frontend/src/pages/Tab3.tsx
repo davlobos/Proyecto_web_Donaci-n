@@ -1,5 +1,7 @@
 import { IonRouterLink, IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput } from '@ionic/react';
+import '../theme/variables.css';
 import './Tab3.css';
+
 
 const Tab3: React.FC = () => {
   return (
@@ -16,8 +18,10 @@ const Tab3: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <div className="input-container">
+        <div>
           <IonInput label="Nombre de usuario" labelPlacement="floating" fill="outline" placeholder="Nombre de usuario"></IonInput>
           <IonInput label="Contraseña" labelPlacement="floating" fill="outline" placeholder="Contraseña"></IonInput>
+        </div>
           <div className="button-container">
             <IonButton>Ingresar</IonButton>
           </div>
