@@ -44,3 +44,35 @@ export const deleteUser = async (req: Request, res: Response) => {
     res.status(500).json({ message: error || 'Error al eliminar usuario' });
   }
 };
+
+// Agregar una campaña favorita a un usuario
+export const addFavoriteCampaign = async (req: Request, res: Response) => {
+  const { userId, campaignId } = req.params;
+  try {
+    const result = await userService.addFavoriteCampaign(userId, campaignId);
+    res.json({ message: result.message }); // Envía el mensaje devuelto por el servicio
+  } catch (error) {
+    res.status(500).json({ message: error || 'Error al agregar campaña favorita' });
+  }
+};
+
+export const removeFavoriteCampaign = async (req: Request, res: Response) => {
+  const { userId, campaignId } = req.params;
+  try {
+    const result = await userService.removeFavoriteCampaign(userId, campaignId);
+    res.json({ message: result.message });
+  } catch (error) {
+    res.status(500).json({ message: error || 'Error al quitar campaña favorita' });
+  }
+};
+
+// Obtener un usuario con sus campañas favoritas
+export const getUserWithFavorites = async (req: Request, res: Response) => {
+  const { userId } = req.params;
+  try {
+    const user = await userService.getUserWithFavorites(userId);
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: error || 'Error al obtener usuario con campañas favoritas' });
+  }
+};
