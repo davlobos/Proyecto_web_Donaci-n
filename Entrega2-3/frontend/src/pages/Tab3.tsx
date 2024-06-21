@@ -20,7 +20,7 @@ const Tab3: React.FC = () => {
         <div className="input-container">
         <div>
           <IonInput label="Nombre de usuario" labelPlacement="floating" fill="outline" placeholder="Nombre de usuario"></IonInput>
-          <IonInput label="Contraseña" labelPlacement="floating" fill="outline" placeholder="Contraseña"></IonInput>
+          <IonInput type="password" label="Contraseña" labelPlacement="floating" fill="outline" placeholder="Contraseña"></IonInput>
         </div>
           <div className="button-container">
             <IonButton>Ingresar</IonButton>

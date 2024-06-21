@@ -25,6 +25,18 @@ export const updateCampaign = async (id: string, updateData: any) => {
   }
 };
 
+export const getCampaign = async (id: string) => {
+  try {
+    const campaign = await Campaign.findById(id);
+    if (!campaign) {
+      throw new Error('Campaña no encontrada');
+    }
+    return campaign;
+  } catch (error) {
+    throw new Error(`Error al obtener campaña: ${id}`);
+  }
+};
+
 export const deleteCampaign = async (id: string) => {
   try {
     return await Campaign.findByIdAndDelete(id);

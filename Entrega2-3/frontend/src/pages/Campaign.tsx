@@ -11,7 +11,8 @@ import {
 } from "@ionic/react";
 import { useParams } from "react-router";
 import "./Campaign.css";
-import data from "./campaigns.json";
+import { useEffect, useState } from "react";
+import { ICampaign, Response } from "../responses";
 
 interface CampaignParams {
   id: string;
@@ -19,7 +20,23 @@ interface CampaignParams {
 
 const Campaign: React.FC = () => {
   const { id } = useParams<CampaignParams>();
-  const campaign = data.find((c) => c.id === parseInt(id));
+  const [campaign, setCampaign] = useState<ICampaign>();
+  console.log(id);
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/campaigns/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((response: Response<ICampaign>) => {
+        if (!response.message && response.data) {
+          setCampaign(response.data);
+          console.log(response.data);
+        } else console.log(response.message);
+      });
+  }, []);
 
   return (
     <IonPage>

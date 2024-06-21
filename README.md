@@ -120,11 +120,11 @@ Ejemplo:
 
 ### Tabla Usuario
 
-| Nombre   | Rut      | Email       | Contraseña | 
-|----------|----------|-------------|------------|
-| Pepito   | 000000-k | a@gmail.com | (en md5) |
-| Juan     | 000001-k | b@gmail.com   | (en md5) |
-| Felipe   | 000002-k | c@gmail.com   | (en md5) |
+| Nombre   | Rut      | Email       | Contraseña | Campañas favoritas | 
+|----------|----------|-------------|------------|------------|
+| Pepito   | 000000-k | a@gmail.com | (en md5) | id Campaña Gatitos|
+| Juan     | 000001-k | b@gmail.com   | (en md5) |"|
+| Felipe   | 000002-k | c@gmail.com   | (en md5) |"|
 
 ### Tabla Campaña
 

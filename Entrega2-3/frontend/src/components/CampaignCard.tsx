@@ -5,7 +5,7 @@ import './CampaignCard.css';
 import Campaign from '../pages/Campaign';
 
 interface ContainerProps {
-  id: number;
+  id: string;
   title: string;
   subtitle: string;
 }

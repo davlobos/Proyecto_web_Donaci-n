@@ -35,7 +35,6 @@ export const deleteUser = async (id: string) => {
   }
 };
 
-
 export const addFavoriteCampaign = async (userId: string, campaignId: string) => {
   try {
     const user = await User.findById(userId);

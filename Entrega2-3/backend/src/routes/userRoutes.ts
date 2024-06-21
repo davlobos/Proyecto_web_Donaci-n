@@ -13,4 +13,5 @@ router.post('/:userId/favorite/:campaignId', userController.addFavoriteCampaign)
 router.delete('/:userId/favorite/:campaignId', userController.removeFavoriteCampaign); 
 router.get('/:userId/favorites', userController.getUserWithFavorites);
 
+router.post('/login', userController.login);
 export default router;

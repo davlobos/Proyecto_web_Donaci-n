@@ -6,7 +6,7 @@ export const getCampaigns = async (req: Request, res: Response) => {
     const campaign = await campaignService.getAllCampaigns();
     console.log(campaign);
     
-    res.json(campaign);
+    res.json({ data: campaign });
   } catch (error) {
     res.status(500).json({ message: error || 'Error al obtener campañas' });
   }
@@ -15,7 +15,7 @@ export const getCampaigns = async (req: Request, res: Response) => {
 export const createCampaign = async (req: Request, res: Response) => {
   try {
     const newCampaign = await campaignService.createCampaign(req.body);
-    res.status(201).json(newCampaign);
+    res.status(201).json({data: newCampaign});
   } catch (error) {
     res.status(400).json({ message: error || 'Error al crear campaña' });
   }
@@ -28,11 +28,26 @@ export const updateCampaign = async (req: Request, res: Response) => {
     if (!updatedCampaign) {
       return res.status(404).json({ message: 'Campaña no encontrada' });
     }
-    res.json(updatedCampaign);
+    res.json({ data: updatedCampaign });
+    //res.json(updatedCampaign);
   } catch (error) {
     res.status(400).json({ message: error || 'Error al actualizar campaña' });
   }
 };
+
+export const getCampaign = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    const campaign = await campaignService.getCampaign(id);
+    if (!campaign) {
+      return res.status(404).json({ message: 'Campaña no encontrada' });
+    }
+    res.json({ data: campaign });
+  } catch (error) {
+    res.status(400).json({ message: error || 'Error al obtener campaña' });
+  }
+};
+
 
 export const deleteCampaign = async (req: Request, res: Response) => {
   const { id } = req.params;
