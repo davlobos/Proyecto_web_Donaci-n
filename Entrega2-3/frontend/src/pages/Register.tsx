@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   IonBackButton,
   IonButtons,
@@ -17,36 +17,23 @@ import { caretDownSharp } from "ionicons/icons";
 import "./Register.css";
 
 const Register: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    rut: "",
-    email: "",
-    region: "",
-    comuna: "",
-    pass: "",
-    pass2: "",
-    acceptTerms: false,
-  });
+  const [toggle, setToggle] = useState<boolean>(false);
+  const [comuna, setComuna] = useState<boolean>(false);
+  const [region, setRegion] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(true);
 
-  const handleChange = (event: any) => {
-    const { name, value, checked, type } = event.target;
-    const newValue = type === 'checkbox' ? checked : value;
-    setFormData({ ...formData, [name]: newValue });
-  };
+  useEffect(() => {
+    setDisabled(!(toggle && comuna && region));
+  }, [toggle, comuna, region]);
 
-  const signup = () => {
-    if (formData.name==="" || formData.rut===""  || formData.email===""  || formData.region===""  || formData.comuna===""  || formData.pass===""  || formData.pass2===""  || !formData.acceptTerms) {
-      alert('Por favor completa todos los campos y asegurate de aceptar los términos y condiciones.');
-      return;
-    }else{
-
-    }
-    console.log(formData); // Aquí puedes acceder a los valores del formulario
-    // Lógica para enviar los datos al servidor o hacer lo que necesites
-  };
-
-  // Verifica si los términos y condiciones han sido aceptados
-  const isTermsAccepted = formData.acceptTerms;
+  function handleSubmit(e: any) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const formJson = Object.fromEntries(formData.entries());
+    console.log(formJson);
+    // Aquí puedes realizar la lógica para enviar los datos al servidor
+  }
 
   return (
     <IonPage>
@@ -59,7 +46,7 @@ const Register: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="input-container">
             <div>
               <IonInput
@@ -68,7 +55,7 @@ const Register: React.FC = () => {
                 labelPlacement="floating"
                 fill="outline"
                 placeholder="Nombre de usuario"
-                aria-required="true"
+                required
               ></IonInput>
             </div>
             <div>
@@ -78,7 +65,7 @@ const Register: React.FC = () => {
                 labelPlacement="floating"
                 fill="outline"
                 placeholder="RUT"
-                aria-required="true"
+                required
               ></IonInput>
             </div>
             <div>
@@ -88,31 +75,27 @@ const Register: React.FC = () => {
                 labelPlacement="floating"
                 fill="outline"
                 placeholder="Email"
-                aria-required="true"
+                required
               ></IonInput>
             </div>
             <div>
               <IonSelect
+                onIonChange={(e) => setRegion(!!e.detail.value)}
                 className="never-flip"
                 toggleIcon={caretDownSharp}
                 interface="popover"
                 placeholder="Región"
-                aria-required="true"
                 name="region"
               >
                 <IonSelectOption value="3">Región de Atacama</IonSelectOption>
-                <IonSelectOption value="5">
-                  Región de Valparaíso
-                </IonSelectOption>
-                <IonSelectOption value="13">
-                  Región Metropolitana
-                </IonSelectOption>
+                <IonSelectOption value="5">Región de Valparaíso</IonSelectOption>
+                <IonSelectOption value="13">Región Metropolitana</IonSelectOption>
               </IonSelect>
             </div>
             <div>
               <IonSelect
+                onIonChange={(e) => setComuna(!!e.detail.value)}
                 name="comuna"
-                aria-required="true"
                 className="never-flip"
                 toggleIcon={caretDownSharp}
                 interface="popover"
@@ -132,7 +115,7 @@ const Register: React.FC = () => {
                 fill="outline"
                 placeholder="Contraseña"
                 type="password"
-                aria-required="true"
+                required
               ></IonInput>
             </div>
             <div>
@@ -143,22 +126,21 @@ const Register: React.FC = () => {
                 fill="outline"
                 placeholder="Confirmar contraseña"
                 type="password"
-                aria-required="true"
+                required
               ></IonInput>
             </div>
             <div>
               <IonToggle
                 name="acceptTerms"
-                checked={formData.acceptTerms}
-                onIonChange={handleChange}
                 color={"success"}
                 labelPlacement="end"
                 aria-required="true"
+                onIonChange={() => setToggle((prevToggle) => !prevToggle)}
               >
                 Acepto los términos y condiciones
               </IonToggle>
             </div>
-            <IonButton onClick={signup} disabled={!isTermsAccepted}>
+            <IonButton type="submit" disabled={disabled}>
               Crear cuenta
             </IonButton>
           </div>

@@ -7,7 +7,7 @@ ion-toggle {
 ion-select {
   margin-top: 10px;
 }
-
 ion-select.never-flip::part(icon) {
   transform: none;
 }
+

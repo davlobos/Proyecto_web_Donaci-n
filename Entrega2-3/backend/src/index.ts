@@ -4,7 +4,6 @@ import campaignRoutes from './routes/campaignRoutes';
 import userRoutes from './routes/userRoutes';
 import cors from 'cors';
 import morgan from 'morgan';
-import { MongoClient } from 'mongodb';
 
 
 const app = express();
