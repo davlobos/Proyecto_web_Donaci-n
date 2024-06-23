@@ -13,6 +13,7 @@ export const getCampaigns = async (req: Request, res: Response) => {
 };
 
 export const createCampaign = async (req: Request, res: Response) => {
+  console.log(req.body)
   try {
     const newCampaign = await campaignService.createCampaign(req.body);
     res.status(201).json({data: newCampaign});

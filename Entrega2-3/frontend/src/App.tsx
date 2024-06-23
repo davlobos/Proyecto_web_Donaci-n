@@ -15,6 +15,7 @@ import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 import Campaign from './pages/Campaign';
+import NewCampaign from './pages/NewCampaign';
 import Register from './pages/Register';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -31,20 +32,7 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-//import '@ionic/react/css/palettes/dark.system.css';
-
-/* Theme variables */
 import './theme/variables.css';
-
 setupIonicReact();
 
 const App: React.FC = () => (
@@ -69,6 +57,9 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/register">
             <Register />
+          </Route>
+          <Route exact path="/newcampaign">
+            <NewCampaign />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">

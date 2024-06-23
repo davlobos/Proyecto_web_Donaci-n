@@ -1,8 +1,19 @@
-import React from 'react';
-import { Route } from 'react-router';
-import { IonRouterLink ,IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle } from '@ionic/react';
-import './CampaignCard.css';
-import Campaign from '../pages/Campaign';
+import React from "react";
+import {
+  IonRouterLink,
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonIcon,
+} from "@ionic/react";
+import "./CampaignCard.css";
+import {
+  addCircleOutline,
+  colorFillOutline,
+  trashOutline,
+} from "ionicons/icons";
 
 interface ContainerProps {
   id: string;
@@ -10,19 +21,59 @@ interface ContainerProps {
   subtitle: string;
 }
 
-const CampaignCard: React.FC<ContainerProps> = ({ id, title, subtitle }) => {
+export const CampaignCard: React.FC<ContainerProps> = ({
+  id,
+  title,
+  subtitle,
+}) => {
   return (
-      <IonCard className="card">
-          <IonCardHeader>
-              <IonCardTitle>{title}</IonCardTitle>
-          </IonCardHeader>
-          <IonCardContent>{subtitle}</IonCardContent>
-          <IonButton className="custom-button" fill="clear">
-              <IonRouterLink routerLink={`/campaign/${id}`}>
-                  Ver más información
-              </IonRouterLink>
-          </IonButton>
-      </IonCard>
+    <IonCard className="card">
+      <IonCardHeader>
+        <IonCardTitle>
+          {title}
+          <IonIcon
+            onClick={(e) => {
+              fetch(`http://localhost:5000/api/campaigns/${id}`, {
+                method: "DELETE",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
+                .then((response) => response.json())
+                .then((response: any) => {
+                  if (response.message) console.error(response.message);
+                  else console.log("eliminada :)");
+                });
+                window.location.reload();
+            }}
+            style={{ color: "#b1514c" }}
+            aria-hidden="true"
+            icon={trashOutline}
+          />
+        </IonCardTitle>
+      </IonCardHeader>
+      <IonCardContent>{subtitle}</IonCardContent>
+      <IonButton className="custom-button" fill="clear">
+        <IonRouterLink routerLink={`/campaign/${id}`}>
+          Ver más información
+        </IonRouterLink>
+      </IonButton>
+    </IonCard>
   );
 };
-export default CampaignCard;
+
+export const NewCampaignCard: React.FC = () => {
+  return (
+    <IonCard className="card">
+      <IonCardHeader>
+        <IonCardTitle>¿Quieres crear una campaña?</IonCardTitle>
+      </IonCardHeader>
+      <IonButton className="custom-button" fill="clear">
+        <IonRouterLink routerLink={`/newcampaign/`}>
+          <IonIcon aria-hidden="true" icon={addCircleOutline} />
+          Crear campaña
+        </IonRouterLink>
+      </IonButton>
+    </IonCard>
+  );
+};

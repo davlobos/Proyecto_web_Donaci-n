@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import CampaignCard from '../components/CampaignCard';
+import {CampaignCard} from '../components/CampaignCard';
 import './Tab2.css';
 import data from './campaigns.json';
 

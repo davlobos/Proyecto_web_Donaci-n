@@ -1,6 +1,6 @@
 [
     {
-        "id": 0,
+        "id": "0",
         "title": "Gatitos tristes",
         "subtitle":"Hay muchos gatitos tristes que necesitan dinero :c",
         "fav": false,
@@ -8,7 +8,7 @@
         "goal" : 2500,
         "progress": 1000
     },{
-        "id": 1,
+        "id": "1",
         "title": "Fundación perritos",
         "subtitle":"Hay muchos perritos viviendo en la fundación, dona para seguir cuidando muchos perritos :c",
         "fav": true,
@@ -16,7 +16,7 @@
         "goal" : 7000,
         "progress": 1550
         },{
-        "id": 2,
+        "id": "2",
         "title": "Universitarios hambrientos",
         "subtitle":"La comida en el edificio IBC esta muy cara, haga un aporte para poder alimentar a estos pobres estudiantes",
         "fav": false,

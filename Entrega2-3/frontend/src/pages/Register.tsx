@@ -33,6 +33,7 @@ const Register: React.FC = () => {
     const formJson = Object.fromEntries(formData.entries());
     console.log(formJson);
     // Aquí puedes realizar la lógica para enviar los datos al servidor
+    
   }
 
   return (
