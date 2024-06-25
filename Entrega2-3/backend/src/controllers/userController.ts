@@ -97,11 +97,14 @@ export const removeFavoriteCampaign = async (req: Request, res: Response) => {
 
 // Obtener un usuario con sus campañas favoritas
 export const getUserWithFavorites = async (req: Request, res: Response) => {
-  const { userId } = req.params;
+  const userId = req.params.userId;
   try {
-    const user = await userService.getUserWithFavorites(userId);
-    res.json({data: user});
+    const user = await User.findById(userId).populate('favoriteCampaigns');
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+    res.json({ data: user.favoriteCampaigns });
   } catch (error) {
-    res.status(500).json({ message: error || 'Error al obtener usuario con campañas favoritas' });
+    res.status(500).json({ message: error || 'Error al obtener favoritos' });
   }
 };

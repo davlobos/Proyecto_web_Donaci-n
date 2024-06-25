@@ -48,7 +48,7 @@ const App: React.FC = () => {
             <Route exact path="/tab2">
               <Tab2 user={user} />
             </Route>
-            <Route path="/tab3">
+            <Route exact path="/tab3">
               <Tab3 setUser={setUser} />
             </Route>
             <Route exact path="/">
