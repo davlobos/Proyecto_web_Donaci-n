@@ -64,7 +64,7 @@ const App: React.FC = () => {
               <NewCampaign />
             </Route>
             <Route exact path="/profile">
-              {user ? <Profile user={user} /> : <Redirect to="/tab3" />}
+              {user ? <Profile user={user} setUser={setUser} /> : <Redirect to="/tab3" />}
             </Route>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
