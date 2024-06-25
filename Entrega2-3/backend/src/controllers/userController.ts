@@ -5,7 +5,6 @@ import bcrypt from 'bcrypt';
 
 export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
-  console.log(req.body);
   try {
     // Buscar el usuario por email en la base de datos
     const user = await User.findOne({ email });
@@ -15,7 +14,6 @@ export const login = async (req: Request, res: Response) => {
 
     // Comparar la contraseña ingresada hasheada con la contraseña almacenada hasheada en la base de datos
     const passwordMatch = await bcrypt.compare(password, user.password);
-  
     if (!passwordMatch) {
       return res.status(401).json({ message: 'Contraseña incorrecta' });
     }
@@ -38,9 +36,10 @@ export const getUsers = async (req: Request, res: Response) => {
 
 export const createUser = async (req: Request, res: Response) => {
   try {
-    //User.password= bcrypt.hashSync(User.password,10);
-    const newUser = await userService.createUser(req.body);
-    res.status(201).json({data: newUser});
+    const { password, ...otherData } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await userService.createUser({ ...otherData, password: hashedPassword });
+    res.status(201).json({ data: newUser });
   } catch (error) {
     res.status(400).json({ message: error || 'Error al crear usuario' });
   }
@@ -49,7 +48,7 @@ export const createUser = async (req: Request, res: Response) => {
 export const updateUser = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    //User.password= bcrypt.hashSync(User.password,10);
+    
     const updatedUser = await userService.updateUser(id, req.body);
     if (!updatedUser) {
       return res.status(404).json({ message: 'Usuario no encontrado' });

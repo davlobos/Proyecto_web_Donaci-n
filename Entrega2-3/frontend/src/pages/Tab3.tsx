@@ -2,6 +2,7 @@ import { IonRouterLink, IonButton, IonContent, IonHeader, IonPage, IonTitle, Ion
 import '../theme/variables.css';
 import './Tab3.css';
 
+import { Response, User } from "../responses";
 
 const Tab3: React.FC = () => {
   function handleSubmit(e:any) {
@@ -12,12 +13,24 @@ const Tab3: React.FC = () => {
     const form = e.target;
     const formData = new FormData(form);
 
-    // You can pass formData as a fetch body directly:
-    //fetch('/some-api', { method: form.method, body: formData });
-
-    // Or you can work with it as a plain object:
     const formJson = Object.fromEntries(formData.entries());
     console.log(formJson);
+    fetch("http://localhost:5000/api/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },body: JSON.stringify(
+        formJson
+      ),
+    })
+    .then((response) => response.json())
+    .then((response: Response<User>) => {
+      if (response.message) console.error(response.message);
+      else {
+        console.log("Ingreso correcto");
+        //setCreated(true);
+      }
+    });
 }
   return (
     <IonPage>

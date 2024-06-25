@@ -12,15 +12,19 @@ import {
   IonToggle,
   IonSelect,
   IonSelectOption,
+  IonAlert,
 } from "@ionic/react";
 import { caretDownSharp } from "ionicons/icons";
 import "./Register.css";
+import { Response, User } from "../responses";
 
 const Register: React.FC = () => {
   const [toggle, setToggle] = useState<boolean>(false);
   const [comuna, setComuna] = useState<boolean>(false);
   const [region, setRegion] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(true);
+  const [submit, setSubmit] = useState(false);
+  const [passwordMismatch, setPasswordMismatch] = useState(false);
 
   useEffect(() => {
     setDisabled(!(toggle && comuna && region));
@@ -31,9 +35,30 @@ const Register: React.FC = () => {
     const form = e.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
-    // Aquí puedes realizar la lógica para enviar los datos al servidor
-    
+
+    if (formJson.password !== formJson.pass2) {
+      setPasswordMismatch(true);
+    } else {
+      fetch("http://localhost:5000/api/users/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formJson,
+          admin: false,
+          favoriteCampaigns: [],
+        }),
+      })
+        .then((response) => response.json())
+        .then((response: Response<User>) => {
+          if (response.message) console.error(response.message);
+          else {
+            console.log("creada :)");
+            setSubmit(true);
+          }
+        });
+    }
   }
 
   return (
@@ -51,7 +76,7 @@ const Register: React.FC = () => {
           <div className="input-container">
             <div>
               <IonInput
-                name="name"
+                name="nombre"
                 label="Nombre de usuario"
                 labelPlacement="floating"
                 fill="outline"
@@ -89,8 +114,12 @@ const Register: React.FC = () => {
                 name="region"
               >
                 <IonSelectOption value="3">Región de Atacama</IonSelectOption>
-                <IonSelectOption value="5">Región de Valparaíso</IonSelectOption>
-                <IonSelectOption value="13">Región Metropolitana</IonSelectOption>
+                <IonSelectOption value="5">
+                  Región de Valparaíso
+                </IonSelectOption>
+                <IonSelectOption value="13">
+                  Región Metropolitana
+                </IonSelectOption>
               </IonSelect>
             </div>
             <div>
@@ -110,7 +139,7 @@ const Register: React.FC = () => {
             </div>
             <div>
               <IonInput
-                name="pass"
+                name="password"
                 label="Contraseña"
                 labelPlacement="floating"
                 fill="outline"
@@ -146,6 +175,33 @@ const Register: React.FC = () => {
             </IonButton>
           </div>
         </form>
+        <IonAlert
+          isOpen={submit}
+          header="Usuario creado"
+          message="Usuario creado correctamente :)"
+          buttons={[
+            {
+              text: "OK",
+              handler: () => {
+                setSubmit(false);
+                window.location.href = "/"; // Redirige a la página de inicio
+              },
+            },
+          ]}
+        ></IonAlert>
+        <IonAlert
+          isOpen={passwordMismatch}
+          header="Error"
+          message="Las contraseñas no coinciden."
+          buttons={[
+            {
+              text: "OK",
+              handler: () => {
+                setPasswordMismatch(false);
+              },
+            },
+          ]}
+        ></IonAlert>
       </IonContent>
     </IonPage>
   );
