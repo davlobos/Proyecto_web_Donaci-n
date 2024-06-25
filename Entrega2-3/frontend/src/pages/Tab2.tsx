@@ -80,6 +80,7 @@ const Tab2: React.FC<Tab2Props> = ({ user }) => {
               id={campaign._id}
               title={campaign.title}
               subtitle={campaign.subtitle}
+              isAdmin={user !== null ? user.admin : false}
             />
           ))
         ) : (

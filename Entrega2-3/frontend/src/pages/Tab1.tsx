@@ -10,10 +10,14 @@ import {
 } from "@ionic/react";
 import { CampaignCard, NewCampaignCard } from "../components/CampaignCard";
 import "./Tab1.css";
-import { ICampaign, Response } from "../responses";
+import { ICampaign, Response, User} from "../responses";
 import { useEffect, useState } from "react";
 
-const Tab1: React.FC = () => {
+interface Tab2Props {
+  user: User | null;
+}
+
+const Tab1: React.FC<Tab2Props> = ({user}) => {
   const [campaigns, setCampaigns] = useState<ICampaign[]>([]);
   useEffect(() => {
     fetch("http://localhost:5000/api/campaigns", {
@@ -49,6 +53,7 @@ const Tab1: React.FC = () => {
             id={campaign._id}
             title={campaign.title}
             subtitle={campaign.subtitle}
+            isAdmin={user !== null ? user.admin : false}
           />
         ))}
         

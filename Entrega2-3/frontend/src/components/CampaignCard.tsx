@@ -19,37 +19,42 @@ interface ContainerProps {
   id: string;
   title: string;
   subtitle: string;
+  isAdmin: boolean;
 }
 
 export const CampaignCard: React.FC<ContainerProps> = ({
   id,
   title,
   subtitle,
+  isAdmin,
 }) => {
+  console.log(isAdmin);
   return (
     <IonCard className="card">
       <IonCardHeader>
         <IonCardTitle>
           {title}
-          <IonIcon
-            onClick={(e) => {
-              fetch(`http://localhost:5000/api/campaigns/${id}`, {
-                method: "DELETE",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              })
-                .then((response) => response.json())
-                .then((response: any) => {
-                  if (response.message) console.error(response.message);
-                  else console.log("eliminada :)");
-                });
+          {isAdmin && (
+            <IonIcon
+              onClick={(e) => {
+                fetch(`http://localhost:5000/api/campaigns/${id}`, {
+                  method: "DELETE",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                })
+                  .then((response) => response.json())
+                  .then((response: any) => {
+                    if (response.message) console.error(response.message);
+                    else console.log("eliminada :)");
+                  });
                 window.location.reload();
-            }}
-            style={{ color: "#b1514c" }}
-            aria-hidden="true"
-            icon={trashOutline}
-          />
+              }}
+              style={{ color: "#b1514c" }}
+              aria-hidden="true"
+              icon={trashOutline}
+            />
+          )}
         </IonCardTitle>
       </IonCardHeader>
       <IonCardContent>{subtitle}</IonCardContent>
