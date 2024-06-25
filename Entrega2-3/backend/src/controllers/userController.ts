@@ -13,7 +13,9 @@ export const login = async (req: Request, res: Response) => {
     }
 
     // Comparar la contraseña ingresada hasheada con la contraseña almacenada hasheada en la base de datos
+
     const passwordMatch = await bcrypt.compare(password, user.password);
+
     if (!passwordMatch) {
       return res.status(401).json({ message: 'Contraseña incorrecta' });
     }
@@ -40,6 +42,7 @@ export const createUser = async (req: Request, res: Response) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await userService.createUser({ ...otherData, password: hashedPassword });
     res.status(201).json({ data: newUser });
+
   } catch (error) {
     res.status(400).json({ message: error || 'Error al crear usuario' });
   }
@@ -48,7 +51,6 @@ export const createUser = async (req: Request, res: Response) => {
 export const updateUser = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    
     const updatedUser = await userService.updateUser(id, req.body);
     if (!updatedUser) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
