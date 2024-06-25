@@ -1,37 +1,59 @@
-import { IonRouterLink, IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput } from '@ionic/react';
+import { useState } from 'react';
+import {
+  IonRouterLink,
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonInput,
+  IonAlert,
+} from '@ionic/react';
+import { useHistory } from 'react-router-dom';
 import '../theme/variables.css';
 import './Tab3.css';
 
 import { Response, User } from "../responses";
 
-const Tab3: React.FC = () => {
-  function handleSubmit(e:any) {
-    // Prevent the browser from reloading the page
+const Tab3: React.FC<{ setUser: (user: User | null) => void }> = ({ setUser }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const history = useHistory();
+
+  function handleSubmit(e: any) {
     e.preventDefault();
 
-    // Read the form data
-    const form = e.target;
-    const formData = new FormData(form);
+    const formJson = { email, password };
 
-    const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
     fetch("http://localhost:5000/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      },body: JSON.stringify(
-        formJson
-      ),
+      },
+      body: JSON.stringify(formJson),
     })
     .then((response) => response.json())
     .then((response: Response<User>) => {
-      if (response.message) console.error(response.message);
-      else {
-        console.log("Ingreso correcto");
-        //setCreated(true);
+      if (response.message) {
+        setErrorMessage(response.message);
+        setShowErrorAlert(true);
+      } else if (response.data) {
+        setUser(response.data);
+        history.push('/profile');
+      } else {
+        setErrorMessage('Respuesta inesperada del servidor');
+        setShowErrorAlert(true);
       }
+    })
+    .catch((error) => {
+      setErrorMessage('Error en la comunicación con el servidor');
+      setShowErrorAlert(true);
     });
-}
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -42,30 +64,60 @@ const Tab3: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Tab 3</IonTitle>
+            <IonTitle size="large">Iniciar sesión</IonTitle>
           </IonToolbar>
         </IonHeader>
         <div className="input-container">
           <form onSubmit={handleSubmit}>
-        <div>
-          <IonInput name="email"  label="Correo electrónico" labelPlacement="floating" fill="outline" placeholder="Correo electrónico" required ></IonInput>
-          <IonInput name="password" type="password" label="Contraseña" labelPlacement="floating" fill="outline" placeholder="Contraseña" required></IonInput>
-        </div>
-          <div className="button-container">
-            <IonButton type='submit'>Ingresar</IonButton>
-          </div>
+            <div>
+              <IonInput
+                name="email"
+                label="Correo electrónico"
+                labelPlacement="floating"
+                fill="outline"
+                placeholder="Correo electrónico"
+                value={email}
+                onIonChange={e => setEmail(e.detail.value!)}
+                required
+              ></IonInput>
+              <IonInput
+                name="password"
+                type="password"
+                label="Contraseña"
+                labelPlacement="floating"
+                fill="outline"
+                placeholder="Contraseña"
+                value={password}
+                onIonChange={e => setPassword(e.detail.value!)}
+                required
+              ></IonInput>
+            </div>
+            <div className="button-container">
+              <IonButton type="submit">Ingresar</IonButton>
+            </div>
           </form>
-
-
           <p>¿No tienes una cuenta?</p>
           <div className="button-container">
             <IonButton fill="clear" className="registro">
-              <IonRouterLink className="registerbtn" routerLink='/Register'>
-                <b>Registrate Aquí.</b> 
+              <IonRouterLink className="registerbtn" routerLink="/Register">
+                <b>Registrate Aquí.</b>
               </IonRouterLink>
             </IonButton>
           </div>
         </div>
+        <IonAlert
+          isOpen={showErrorAlert}
+          header="Error"
+          message={errorMessage}
+          buttons={[
+            {
+              text: "OK",
+              handler: () => {
+                setShowErrorAlert(false);
+              },
+            },
+          ]}
+        ></IonAlert>
       </IonContent>
     </IonPage>
   );
